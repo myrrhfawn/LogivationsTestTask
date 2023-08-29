@@ -8,5 +8,5 @@ app = FastAPI(
 @app.post("/")
 def get_image(file: bytes = File(...)):
     edit_image = Pyro4.Proxy("PYRONAME:edit.image")
-    response = edit_image.get_image(file)
+    response = edit_image.upload_image(file)
     return {"status": 200, "data": response}
